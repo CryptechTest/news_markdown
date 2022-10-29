@@ -1,3 +1,3 @@
 # Important!!!
 
-All news files, no matter their language or content, must go in the main world directory, i.e. where "map.sqlite" and "worldmods" would be.
+All news files, no matter their language or content, must go in the "news" folder of the main world directory.
