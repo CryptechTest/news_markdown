@@ -41,7 +41,7 @@ local function check_for_updates(name)
         update_hash()
 
         if (storage:get_int(prefix .. name) == 1) then
-            minetest.chat_send_player(name, "There are news updates, type /news to see them")
+            minetest.chat_send_player(name, minetest.colorize("green", "There are news updates, type /news to see them"))
         end
 
         minetest.log("action", "News updates found")
@@ -115,12 +115,12 @@ minetest.register_chatcommand("toggle_news", {
 
         if (current_state == 0) then
             storage:set_int(prefix .. name, 1)
-            minetest.chat_send_player(name, "You will no longer see automatic news")
+            minetest.chat_send_player(name, minetest.colorize("green", "You will no longer see automatic news"))
 
             minetest.log("action", name .. " disabled automatic news")
         else
             storage:set_int(prefix .. name, 0)
-            minetest.chat_send_player(name, "You will now see automatic news")
+            minetest.chat_send_player(name, minetest.colorize("green", "You will now see automatic news"))
 
             minetest.log("action", name .. " enabled automatic news")
         end
