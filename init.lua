@@ -67,6 +67,11 @@ local function show_news_formspec(name)
 
     local news_filename = minetest.get_worldpath() .. "/news_" .. language_code .. ".md"
     local news_file = io.open(news_filename, "r")
+    if(news_file) then
+        -- Do nothing
+    else
+        news_file = io.open(minetest.get_worldpath() .. "/news_en.md", "r")        
+    end
     local news_markdown = news_file:read("*a")
     news_file:close()
 
@@ -90,6 +95,7 @@ local function show_news_formspec(name)
             minetest.log("action", "Toggled newsOnJoinExceptions_" .. name .. " to " .. tostring(storage:get_int(prefix .. name)))
         end
     end)
+    
 end
 
 minetest.register_on_joinplayer(function(player)
