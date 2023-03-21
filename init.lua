@@ -91,8 +91,6 @@ local function show_news_formspec(name)
             else
                 storage:set_int(prefix .. name, 0)
             end
-
-            minetest.log("action", "Toggled newsOnJoinExceptions_" .. name .. " to " .. tostring(storage:get_int(prefix .. name)))
         end
     end)
     
